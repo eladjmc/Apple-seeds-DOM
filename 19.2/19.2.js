@@ -19,7 +19,9 @@ const users = [
   },
 ];
 let person = null;
+
 const olElement = document.createElement("ol");
+
 const body = document.querySelector('body');
 body.appendChild(olElement);
 olElement.style.listStyleType = "none";
