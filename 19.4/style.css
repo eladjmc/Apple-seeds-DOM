@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #b5956a;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1{
+    transition: all 0.1sec;
+    font-size: 40px;
+}
+p{
+    font-size: 35px;
+    transition: all 0.1sec;
+}
+h2{
+    font-size: 90px;
+    transition: all 0.1sec;
+    color: red;
+}
+button{
+    width :180px;
+    height: 50px;
+    margin-bottom: 20px;
+}
