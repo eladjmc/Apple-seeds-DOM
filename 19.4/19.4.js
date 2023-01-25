@@ -1,4 +1,4 @@
-var audio = new Audio("./theBoneOfMySword.mp3");
+let audio = new Audio("./theBoneOfMySword.mp3");
 const mainContainer = document.createElement("div");
 const button = document.createElement("button");
 mainContainer.classList.add("main-container");
@@ -12,7 +12,7 @@ elementsDisplayArr.push(h1);
 h2 = document.createElement("h2");
 h2.textContent = `Unlimited Blade Works!!!`;
 let toggle = true;
-
+let inter = null;
 paragraphArrText = [
   `Steel is my Body and Fire is my Blood.`,
   `I have created over a Thousand Blades,`,
@@ -22,19 +22,18 @@ paragraphArrText = [
   `Yet those Hands will never hold Anything.`,
   `So, as I Pray--`,
 ];
+
 for (let i = 1; i < 8; i++) {
   elementsDisplayArr.push(document.createElement("p"));
   elementsDisplayArr[i].textContent = `${paragraphArrText[i - 1]}`;
 }
 elementsDisplayArr.push(h2);
-let inter = null;
 
 button.addEventListener("click", () => {
   scripRun();
 });
 
 const scripRun = () => {
-  audio.play();
   button.style.display = "none";
   toggle = !toggle;
   if (toggle) {
@@ -51,9 +50,13 @@ const scripRun = () => {
       button.style.display = "block";
       return;
     }
+
     if (j !== 0) {
       elementsDisplayArr[j - 1].remove();
+    } else {
+      audio.play();
     }
+
     mainContainer.appendChild(elementsDisplayArr[j]);
     j++;
   }, 3000);
