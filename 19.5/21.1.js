@@ -1,5 +1,6 @@
 const input = document.querySelector("input");
 const resultText = document.querySelector("h2");
+
 input.addEventListener("input", () => {
   if (Number(input.value) < 18) {
     resultText.style.color = "red";
