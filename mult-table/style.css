@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: #D5E3EC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.table-container{
+    background-color: white;
+}
+.cell {
+    width: 50px;
+    height: 35px;
+    border: purple solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: white;
+}
+.first-cells {
+    color: green;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+}
