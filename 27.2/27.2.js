@@ -14,15 +14,15 @@ const makeAllCaps = (array) =>
         reject("One of the items in the array is not a string");
       }
     });
-    resolve(array.map((word) => word.toUpperCase()));
+    resolve(array.join(' ').toUpperCase().split(' '));
   });
 
 const sortWords = (array) =>
   new Promise((resolve, reject) => resolve(array.sort()));
 
-const array = ["hello", "world", "aMaram"];
+const array = ['hello', "world", "aMarm"];
 
-const array2 = [43, "world", "aMaram"];
+const array2 = [43, "world", "benny"];
 
 makeAllCaps(array)
   .then((array) => console.log(sortWords(array)))
