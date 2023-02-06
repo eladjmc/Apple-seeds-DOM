@@ -27,3 +27,4 @@ const array2 = [43, "world", "benny"];
 makeAllCaps(array)
   .then((array) => console.log(sortWords(array)))
   .catch((err) => console.log(err));
+
