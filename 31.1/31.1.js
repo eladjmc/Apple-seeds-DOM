@@ -15,31 +15,28 @@ async function createTable(number) {
   try {
     const char = {};
     char.planet = {};
-    let planetUrl = "";
     const response = await fetch(`https://swapi.dev/api/people/${number}`);
     if (!response.ok) {
       return;
     }
-    await response.json().then((personData) => {
-      char.hair = personData.hair_color;
-      char.height = personData.height;
-      char.name = personData.name;
-      planetUrl = personData.homeworld;
-    });
+    const personData = await response.json();
+    char.hair = personData.hair_color;
+    char.height = personData.height;
+    char.name = personData.name;
+    const planetUrl = personData.homeworld;
 
     const responsePlanet = await fetch(planetUrl);
     if (!responsePlanet.ok) {
       char.planet.name = "NoData";
       char.planet.population = 0;
     } else {
-      responsePlanet.json().then((planet) => {
-        char.planet.name = planet.name;
-        char.planet.population = planet.population;
-        starWarsChars.push(char);
-        if (starWarsChars.length >= 10) {
-          buildTable();
-        }
-      });
+      const planet = await responsePlanet.json();
+      char.planet.name = planet.name;
+      char.planet.population = planet.population;
+      starWarsChars.push(char);
+      if (starWarsChars.length >= 10) {
+        buildTable();
+      }
     }
   } catch (error) {
     console.error(error);
@@ -62,11 +59,10 @@ const buildTable = () => {
   }
 };
 
-
 const convertParamsToArr = (index) => {
-    let parametersArr = Object.values(starWarsChars[index]);
-    parametersArr.reverse();
-    parametersArr.pop();
-    parametersArr.push(Object.values(starWarsChars[index].planet));
-    return parametersArr;
+  let parametersArr = Object.values(starWarsChars[index]);
+  parametersArr.reverse();
+  parametersArr.pop();
+  parametersArr.push(Object.values(starWarsChars[index].planet));
+  return parametersArr;
 };
